@@ -49,8 +49,9 @@ class Player:
 
     def add_card(self,card):
         """
+        Function takes as input a card and appends it to the players' list of cards.
 
-        :param card: Adds one card to the players cards list and updates number_of_cards.
+        :param card: The card to be added to the list.
         """
         self.cards.append(card)
         self.number_of_cards += 1
@@ -60,8 +61,8 @@ class Player:
 
     def __str__(self):
         return f'Player name: {self.name}, turn_count: {self.turn_count}, number_of_cards: {self.number_of_cards}, \
-        history: {self.history_cards},\n cards: {self.cards}'
+        history: {[str(card) for card in self.history_cards]},\n cards: {self.cards}'
 
-"""player = Player('Dirk')
+player = Player('Dirk')
 print(repr(player))
-print(player)"""
+

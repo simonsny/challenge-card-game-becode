@@ -2,6 +2,7 @@ class Symbol:
     """
     Class that will be the parent class of Card, holding the color and icon.
     """
+    color_code = {'red': "\033[1;31;40m", 'black': "\033[1;37;40m", 'normal': '\033[0m'}
 
     def __init__(self, color: str, icon: str):
         """
@@ -15,7 +16,7 @@ class Symbol:
         return repr({"color": self.color, "icon": self.icon})
 
     def __str__(self):
-        return f"{self.color} {self.icon}"
+        return f"{Symbol.color_code[self.color]} {self.icon} {Symbol.color_code.normal}"
 
 class Card(Symbol):
     """
@@ -35,5 +36,11 @@ class Card(Symbol):
         return repr({"color": self.color, "icon": self.icon, "value": self.value})
 
     def __str__(self):
-        return f"{self.color} {self.icon} {self.value}"
+        return f"{Symbol.color_code[self.color]} {self.icon}{self.value} {Symbol.color_code['normal']}"
 
+card1 = Card('red', 'red', 1)
+card2 = Card('black', 'black', 2)
+card3 = Card('normal', 'normal', 3)
+
+print(card1, card3)
+print(card2)
