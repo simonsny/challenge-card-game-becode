@@ -26,11 +26,20 @@ class Board:
         Then the game will make each player play one card per turn, until no more cards are left.
         It is possible for some players to have one turn more then others.
         """
+        print(1)
         if not players:
+            print(players)
             if not self.players:
+                print(3)
                 self.input_players()
+            else:
+                print('did this')
+                self.create_players_from_list(players)
+
         else:
-            self.players = players
+            print('did this')
+            self.create_players_from_list(players)
+        print(4)
         self.create_deck()
         self.deck.fill_and_distribute(self.players)
         i = 0
@@ -44,7 +53,6 @@ class Board:
                 print(player)
                 print('\n')
             print(f'Active cards: {self.active_cards}')
-            #print('\n\n')
             self.turn_count += 1
             self.history_cards.extend(self.active_cards)
             self.active_cards = []
@@ -56,6 +64,15 @@ class Board:
         """
         self.deck = Deck()
 
+    def create_players_from_list(self, players: list):
+        """
+        Takes a list and iterates through it, creating a player from each string inside.
+
+        :param players: The list containing names in string format from which to create players.
+        """
+        self.players = [Player(name) for name in players]
+
+
     def input_players(self):
         """
         Asks for the users to input the players' names and puts them in a the players list.
@@ -63,16 +80,18 @@ class Board:
         print("Please input all players here one by one.\nWe need at least 2 players and max 52. \
         \nPress 'Enter' in a blank feeld to start the game.")
         i = 1
+        players = []
         while i <= 52:
             input_string = input(f'Player {i}: ')
             print()
             if input_string == "":
-                if len(self.players) < 2:
+                if len(players) < 2:
                     print("Please enter a name.")
                     continue
                 break
-            self.players.append(Player(input_string))
+            players.append(input_string)
             i += 1
+        self.create_players_from_list(players)
 
 
 if __name__ == '__main__':
