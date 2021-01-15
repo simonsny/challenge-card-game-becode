@@ -62,7 +62,3 @@ class Player:
     def __str__(self):
         return f'Player name: {self.name}, turn_count: {self.turn_count}, number_of_cards: {self.number_of_cards}, \
         history: {[str(card) for card in self.history_cards]},\n cards: {self.cards}'
-
-player = Player('Dirk')
-print(repr(player))
-

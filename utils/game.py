@@ -73,10 +73,3 @@ class Board:
                 break
             self.players.append(Player(input_string))
             i += 1
-
-
-if __name__ == '__main__':
-    board = Board([])
-    board.start_game()
-    for player in board.players:
-        print(player)

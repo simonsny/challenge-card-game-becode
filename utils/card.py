@@ -37,10 +37,3 @@ class Card(Symbol):
 
     def __str__(self):
         return f"{Symbol.color_code[self.color]} {self.icon}{self.value} {Symbol.color_code['normal']}"
-
-card1 = Card('red', 'red', 1)
-card2 = Card('black', 'black', 2)
-card3 = Card('normal', 'normal', 3)
-
-print(card1, card3)
-print(card2)

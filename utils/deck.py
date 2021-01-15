@@ -1,5 +1,4 @@
 from random import shuffle as random_shuffle
-from random import randrange
 from utils.card import Card
 
 SYMBOLS = {'♥': 'red', '♦': 'red', '♣': 'black', '♠': 'black'}
@@ -53,14 +52,3 @@ class Deck:
 
     def __str__(self):
         return f"Deck filled with: {[str(card) for card in self.cards]}"
-
-
-
-if __name__ == '__main__':
-    deck = Deck()
-    deck.fill_deck()
-    print(1, deck)
-
-    print(2, repr(deck))
-    print(3, deck.__dict__)
-    deck.shuffle()
