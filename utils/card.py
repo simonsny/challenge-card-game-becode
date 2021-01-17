@@ -9,6 +9,7 @@ class Symbol:
         :param color: Holds the color of a Card
         :param icon: Holds the Icon of a Card
         """
+
         self.color = color
         self.icon = icon
 
@@ -16,7 +17,8 @@ class Symbol:
         return repr({"color": self.color, "icon": self.icon})
 
     def __str__(self):
-        return f"{Symbol.color_code[self.color]} {self.icon} {Symbol.color_code.normal}"
+        return f"{Symbol.color_code[self.color]} {self.icon} {Symbol.color_code['normal']}"
+
 
 class Card(Symbol):
     """
@@ -36,11 +38,4 @@ class Card(Symbol):
         return repr({"color": self.color, "icon": self.icon, "value": self.value})
 
     def __str__(self):
-        return f"{Symbol.color_code[self.color]} {self.icon}{self.value} {Symbol.color_code['normal']}"
-
-card1 = Card('red', 'red', 1)
-card2 = Card('black', 'black', 2)
-card3 = Card('normal', 'normal', 3)
-
-print(card1, card3)
-print(card2)
+        return f"{Symbol.color_code[self.color]}{self.icon}{self.value}{Symbol.color_code['normal']}"

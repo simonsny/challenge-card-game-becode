@@ -1,11 +1,5 @@
 from utils.game import Board
 
 if __name__ == '__main__':
-    board = Board(['simon', 'si de  bi'])
-
-
-
-
-
-
+    board = Board()
     board.start_game()
